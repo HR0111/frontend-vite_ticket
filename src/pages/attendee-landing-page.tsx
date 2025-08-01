@@ -50,8 +50,9 @@ const AttendeeLandingPage: React.FC = () => {
       await refreshPublishedEvents();
     }
 
-    try {
-      setPublishedEvents(await searchPublishedEvents(query, page));
+    try {setPublishedEvents(await searchPublishedEvents(query || "", page));
+
+      //setPublishedEvents(await searchPublishedEvents(query, page));
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
